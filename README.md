@@ -15,8 +15,9 @@ You can specify orientation (flat‐top or pointy‐top), rows, columns, size, a
 
 ## Installation
 
-Include the script in your HTML page:
+Include the script and stylesheet in your HTML page:
    ```html
+   <link rel="stylesheet" href="https://raw.githack.com/hasielhassan/HoneyCombLayoutJs/main/styles.css">
    <script src="https://raw.githack.com/hasielhassan/HoneyCombLayoutJs/main/script.js"></script>
    ```
 
@@ -76,7 +77,8 @@ Include the script in your HTML page:
 <head>
   <meta charset="UTF-8">
   <title>HoneyCombLayoutJs Demo</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="HoneyCombLayoutJs/styles.css">
+  <script src="HoneyCombLayoutJs/script.js"></script>
 </head>
 <body>
 
@@ -119,7 +121,6 @@ Include the script in your HTML page:
     </a>
   </div>
 
-  <script src="HoneyCombLayout.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       buildHoneycomb('.honeycomb-container');
