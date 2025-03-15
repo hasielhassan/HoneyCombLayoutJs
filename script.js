@@ -17,6 +17,9 @@ function buildHoneycomb(selector) {
     // Spacing in pixels between hex centers
     const spacing = parseFloat(container.dataset.spacingrange) || 4;
 
+    // Height margin for the container
+    const heightmargin = parseInt(container.dataset.heightmargin, 10) || 1;
+
     // 2) Gather all <a> items
     const items = Array.from(container.querySelectorAll('a'));
 
@@ -70,11 +73,22 @@ function buildHoneycomb(selector) {
     });
 
     // 4) Adjust container's size so all items fit
-    const lastRow = Math.min(rows, Math.ceil(items.length / cols)) - 1;
-    const lastCol = (items.length % cols === 0) ? cols - 1 : (items.length % cols) - 1;
-    const { x: maxX, y: maxY } = getHexPosition(rows - 1, cols - 1);
-    const neededWidth  = maxX + 2 * size;
-    const neededHeight = maxY + 2 * size;
-    container.style.width = Math.ceil(neededWidth) + 'px';
-    container.style.height = Math.ceil(neededHeight) + 'px';
+    let maxRight = 0;
+    let maxBottom = 0;
+    
+    items.forEach((item, index) => {
+      const r = Math.floor(index / cols);
+      const c = index % cols;
+      const { x, y } = getHexPosition(r, c);
+    
+      // Each hex is 2*size wide/tall, so the right edge is x + 2*size
+      // and the bottom edge is y + 2*size.
+      maxRight = Math.max(maxRight, x + 2 * size);
+      maxBottom = Math.max(maxBottom, y + 2 * size);
+    });
+
+    // Then set container size based on those maxima
+    container.style.width = Math.ceil(maxRight) + 'px';
+    container.style.height = Math.ceil(maxBottom + heightmargin) + 'px';
+
 }

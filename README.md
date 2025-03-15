@@ -30,6 +30,7 @@ Include the script in your HTML page:
         data-colsrange="3"
         data-sizerange="60"
         data-spacingrange="16"
+        data-heightmargin="10"
    >
      <a href="/example/link1">
        <img src="icon1.svg" alt="Icon 1">
@@ -63,6 +64,7 @@ Include the script in your HTML page:
 - **`data-colsrange`**: Number of columns in the layout (integer).
 - **`data-sizerange`**: Radius (in pixels) from hex center to a corner (number).
 - **`data-spacingrange`**: Spacing (in pixels) between adjacent hex centers (number).
+- **`data-heightmargin`**: Margin (in pixels) to extend the div height (number).
 
 ---
 
