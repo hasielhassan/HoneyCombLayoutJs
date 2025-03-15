@@ -1,0 +1,20 @@
+.honeycomb-container {
+    /* We’ll let JS compute width/height. 
+       But if you want a fixed size or border, you can add it here. */
+    position: relative; /* So absolutely positioned items stay within */
+    border: 0px solid #ccc;
+    margin: 20px auto;
+    padding: 10px;
+}
+.honeycomb-container a {
+    /* Ensure anchor tags don’t flow as normal inline elements */
+    position: absolute;
+    display: block;
+    text-decoration: none;
+}
+.honeycomb-container img {
+    /* Make sure images fill their parent <a> size, if desired */
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* or cover, depending on your icons */
+}
